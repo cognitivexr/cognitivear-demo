@@ -1,6 +1,7 @@
 version: '3.4'
 
 services:
+
   broker:
     image: eclipse-mosquitto
     ports:
@@ -10,3 +11,14 @@ services:
       - ./var/mosquitto/data:/mosquitto/data
       - ./var/mosquitto/log:/mosquitto/log
       - ./etc/mosquitto/config:/mosquitto/config
+
+  cpop:
+    image: cognitivexr/cpop:cuda-11
+    command: python3 -m cpop.cli.detector
+    environment:
+      - CPOP_CAMERA_MODEL
+      - CPOP_BROKER_HOST=broker
+    devices:
+      - ${CPOP_CAMERA_DEVICE:-/dev/video0}:/dev/video0
+    volumes:
+      - ${CPOP_PROPERTIES:-./etc/cpop}:/root/.cpop
