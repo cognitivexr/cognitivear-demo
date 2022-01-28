@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  broker:
+    image: eclipse-mosquitto
+    ports:
+      - '1883:1883'
+      - '9001:9001'
+    volumes:
+      - ./var/mosquitto/data:/mosquitto/data
+      - ./var/mosquitto/log:/mosquitto/log
+      - ./etc/mosquitto/config:/mosquitto/config
