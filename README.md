@@ -38,6 +38,11 @@ To calibrate the intrinsic parameters of the camera that will be used for CPOP, 
 For this you will need to run CPOP on your host machine, as you require a working OpenCV UI to validate the camera calibration.
 The generated files (e.g., `default__intrinsic_1024x576.json`) will be placed into `~/.cpop/cameras` and should be copied into this repository to `etc/cpop/cameras`.
 
+Here is a video showing the procedure.
+The more angles and good frames you capture, the better the result will be.
+
+https://user-images.githubusercontent.com/3996682/151710294-662f904d-69c1-4c1b-b5b1-9182035c0319.mp4
+
 ### Anchoring the camera to the common origin
 
 Once the intrinsic camera parameters are determined, we can now anchor the camera to a common origin.
