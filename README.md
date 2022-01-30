@@ -34,11 +34,19 @@ TODO: install procuedure (or alternatively: pull the docker images)
 
 ### Calibrating the camera parameters
 
-TODO: describe intrinsic camera calibration procedure
+To calibrate the intrinsic parameters of the camera that will be used for CPOP, please follow these steps: https://github.com/cognitivexr/cpop#intrinsic-camera-parameters.
+For this you will need to run CPOP on your host machine, as you require a working OpenCV UI to validate the camera calibration.
+The generated files (e.g., `default__intrinsic_1024x576.json`) will be placed into `~/.cpop/cameras` and should be copied into this repository to `etc/cpop/cameras`.
 
 ### Anchoring the camera to the common origin
 
-TODO: describe anchoring using `anchor` CLI and the aurco pattern
+Once the intrinsic camera parameters are determined, we can now anchor the camera to a common origin.
+For that, first place the camera where it should perceive the environment from.
+After anchoring, it should not be moved, otherwise the coordinates sent to other devices will be wrong.
+The steps are described here: https://github.com/cognitivexr/cpop#extrinsic-camera-parameters
+Copy the `default__extrinsic.json` file from `~/.cpop/cameras` into `etc/cpop/cameras`.
+
+The camera is now calibrated and ready to be used in the CPOP server!
 
 ## Start the platform
 
