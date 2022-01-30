@@ -41,10 +41,17 @@ The generated files (e.g., `default__intrinsic_1024x576.json`) will be placed in
 ### Anchoring the camera to the common origin
 
 Once the intrinsic camera parameters are determined, we can now anchor the camera to a common origin.
-For that, first place the camera where it should perceive the environment from.
+The exact steps are described here: https://github.com/cognitivexr/cpop#extrinsic-camera-parameters
+
+First, place the camera where it should perceive the environment from.
+Print the ArUco marker and put it on the ground where it is visible to the camera.
 After anchoring, it should not be moved, otherwise the coordinates sent to other devices will be wrong.
-The steps are described here: https://github.com/cognitivexr/cpop#extrinsic-camera-parameters
+use the `python -m cpop.cli.anchor` command to run the anchoring.
 Copy the `default__extrinsic.json` file from `~/.cpop/cameras` into `etc/cpop/cameras`.
+
+Here is what the procedure looks like (marker is on the table for demonstration purposes).
+
+https://user-images.githubusercontent.com/3996682/151709934-9aa15686-abd1-4e64-993b-c6efc5f3a5b7.mp4
 
 The camera is now calibrated and ready to be used in the CPOP server!
 
