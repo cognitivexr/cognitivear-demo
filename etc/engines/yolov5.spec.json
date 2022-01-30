@@ -1,0 +1,11 @@
+{
+  "name": "yolov5",
+  "runtime": "cogstream-docker",
+  "runtime-config": {
+    "image": "cognitivexr/engine-yolov5:cuda-110"
+  },
+  "specification": {
+    "operation": "analyze",
+    "attributes": {}
+  }
+}

@@ -22,3 +22,10 @@ services:
       - ${CPOP_CAMERA_DEVICE:-/dev/video0}:/dev/video0
     volumes:
       - ${CPOP_PROPERTIES:-./etc/cpop}:/root/.cpop
+
+  mediator:
+    image: cognitivexr/cogstream-mediator
+    network_mode: host
+    volumes:
+      - ./etc/engines:/cogstream/engines
+      - /var/run/docker.sock:/var/run/docker.sock

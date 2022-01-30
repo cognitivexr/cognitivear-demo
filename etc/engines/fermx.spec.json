@@ -1,0 +1,11 @@
+{
+  "name": "fermx",
+  "runtime": "cogstream-docker",
+  "runtime-config": {
+    "image": "cognitivexr/engine-fermx:cuda-110"
+  },
+  "specification": {
+    "operation": "analyze",
+    "attributes": {}
+  }
+}

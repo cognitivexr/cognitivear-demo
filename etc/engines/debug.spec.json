@@ -1,0 +1,11 @@
+{
+  "name": "debug",
+  "runtime": "cogstream-docker",
+  "runtime-config": {
+    "image": "cognitivexr/engine-debug"
+  },
+  "specification": {
+    "operation": "analyze",
+    "attributes": {}
+  }
+}
