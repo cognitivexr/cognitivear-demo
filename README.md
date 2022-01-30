@@ -5,7 +5,7 @@ This repository contains all the code to run the [Cognitive AR](https://netidee.
 
 The following figure shows a rough overview of what we will set up:
 <p align="center">
-  <img src="https://raw.githubusercontent.com/cognitivexr/cognitivear-demo/master/images/cognitivexr-end-to-end.jpg" alt="End-to-end demo">
+  <img src="https://raw.githubusercontent.com/cognitivexr/cognitivear-demo/main/images/cognitivexr-end-to-end.png" alt="End-to-end demo">
 </p>
 
 
