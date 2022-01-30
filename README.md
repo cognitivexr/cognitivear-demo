@@ -96,11 +96,22 @@ See [the CPOP documentation](https://github.com/cognitivexr/cpop#run-the-service
 
 ## Start the HoloLens App
 
+Our [Unity Demo App](https://github.com/cognitivexr/unity-demo-app/) can be built for and deployed on the HoloLens 2.
+It contains two scenes that demonstrate the integration of the HoloLens with the CognitiveXR platform.
 
-### Video offloading for facial expression recognition
+### App 1: Indoor environmental sensor tracking
+
+This app demonstrates the integration with CPOP.
+The AR device doesn't do any tracking, it only receives sensor data from the environment in real time that CPOP collects.
+
+https://user-images.githubusercontent.com/3996682/151723092-653bf867-7064-4fb1-9358-c2c17703fa64.mp4
+
+
+### App 2: Video offloading for facial expression recognition
 
 Once the HoloLens app is deployed, you can select the fermx engine in the app.
 The HoloLens will connect to the mediator that creates a new analytics engine, which will then process the video feed.
 
-https://user-images.githubusercontent.com/3996682/151722932-922a9771-7fc3-4ae4-a8d3-c4400c2452a2.mp4
+https://user-images.githubusercontent.com/3996682/151723007-1eb70c9f-eeb1-4c1f-85d1-57a0fafc2cc6.mp4
+
 
