@@ -3,6 +3,12 @@ Cognitive AR Demo
 
 This repository contains all the code to run the [Cognitive AR](https://netidee.at/cognitivear) end-to-end demo.
 
+The following figure shows a rough overview of what we will set up:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/cognitivexr/cognitivear-demo/master/images/cognitivexr-end-to-end.jpg" alt="End-to-end demo">
+</p>
+
+
 ## Overview
 
 The setup includes the following steps
