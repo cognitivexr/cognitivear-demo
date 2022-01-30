@@ -95,3 +95,12 @@ See [the CPOP documentation](https://github.com/cognitivexr/cpop#run-the-service
 #### Start the CogStream Mediator
 
 ## Start the HoloLens App
+
+
+### Video offloading for facial expression recognition
+
+Once the HoloLens app is deployed, you can select the fermx engine in the app.
+The HoloLens will connect to the mediator that creates a new analytics engine, which will then process the video feed.
+
+https://user-images.githubusercontent.com/3996682/151722932-922a9771-7fc3-4ae4-a8d3-c4400c2452a2.mp4
+
