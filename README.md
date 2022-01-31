@@ -28,7 +28,14 @@ The setup includes the following steps
 
 ## Seting up the edge node (or your computer)
 
-TODO: install procuedure (or alternatively: pull the docker images)
+CognitiveXR is built to run on GPU-accelerated edge computing hardware, such as NVIDIA Jetson devices.
+Our [edge-node](https://github.com/cognitivexr/edge-node) documentation gives instructions on how to build your own edge cluster.
+
+If you want to run the platform on your computer you need:
+* Docker (for building and running the platform components)
+* Python (for calibrating CPOP)
+* A webcam (for CPOP)
+* (optional) An NVIDIA GPU with CUDA 11 and the [NVIDIA Docker Toolkit](https://github.com/NVIDIA/nvidia-docker)
 
 ## Seting up CPOP
 
@@ -70,9 +77,16 @@ The `docker-compose.yml` contains a basic docker-compose that starts up all syst
 The `.env` file contains relevant parameters.
 The `etc/` folder contains several configuration files that are mounted into the system components.
 
-#### System parameters
+#### Build the container images
 
-TODO: document
+We currently don't host pre-built docker images, so you will have to build them yourself:
+* CPOP
+* CogStream Mediator
+* CogStream Engines (e.g., fermx, and yolov5)
+
+You can find build instructions for the docker images in the respective repositories.
+
+#### System parameters
 
 | Variable | Description |
 | -------- | ----------- |
@@ -93,6 +107,8 @@ The MQTT broker port and host needs to be configured when
 See [the CPOP documentation](https://github.com/cognitivexr/cpop#run-the-service) on how to run the CPOP service manually.
 
 #### Start the CogStream Mediator
+
+See [the CogStream documentation](https://github.com/cognitivexr/CogStream) on how to build and run the mediator.
 
 ## Start the HoloLens App
 
