@@ -86,6 +86,12 @@ We currently don't host pre-built docker images, so you will have to build them 
 
 You can find build instructions for the docker images in the respective repositories.
 
+#### Set correct engine image
+
+in `etc/engines/` you can find the engine specifications that describe how engines are started by the mediator.
+If you wish to use the CPU images for the fermx or yolov5 engine, then you can change the tag from `cuda-110` to `cpu`.
+https://github.com/cognitivexr/cognitivear-demo/blob/e98ab951e219132f1b68c9331a6adb923174a9ca/etc/engines/fermx.spec.json#L5
+
 #### System parameters
 
 | Variable | Description |
