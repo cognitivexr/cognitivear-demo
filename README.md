@@ -11,7 +11,7 @@ The following figure shows a rough overview of what we will set up:
 
 ## Overview
 
-The setup includes the following steps
+The setup includes the following steps:
 
 * Setting up the [edge node](https://github.com/cognitivexr/edge-node), although you can also run it entirely on your computer
 * Setting up [CPOP](https://github.com/cognitivexr/cpop)
@@ -26,24 +26,25 @@ The setup includes the following steps
 * Start the Platform
 * Start the HoloLens App
 
-## Seting up the edge node (or your computer)
+## Setting up the edge node (or your computer)
 
 CognitiveXR is built to run on GPU-accelerated edge computing hardware, such as NVIDIA Jetson devices.
 Our [edge-node](https://github.com/cognitivexr/edge-node) documentation gives instructions on how to build your own edge cluster.
 
-If you want to run the platform on your computer you need:
+If you want to run the platform on your computer, you need:
 * Docker (for building and running the platform components)
 * Python (for calibrating CPOP)
 * A webcam (for CPOP)
+* (optional) An Intel Realsense Camera (for depth estimation)
 * (optional) An NVIDIA GPU with CUDA 11 and the [NVIDIA Docker Toolkit](https://github.com/NVIDIA/nvidia-docker)
 
-## Seting up CPOP
+## Setting up CPOP
 
 ### Calibrating the camera parameters
 
 To calibrate the intrinsic parameters of the camera that will be used for CPOP, please follow these steps: https://github.com/cognitivexr/cpop#intrinsic-camera-parameters.
-For this you will need to run CPOP on your host machine, as you require a working OpenCV UI to validate the camera calibration.
-The generated files (e.g., `default__intrinsic_1024x576.json`) will be placed into `~/.cpop/cameras` and should be copied into this repository to `etc/cpop/cameras`.
+For this, you will need to run CPOP on your host machine or use X11 forwarding, as you require a working OpenCV UI to validate the camera calibration.
+The generated files (e.g., `default__intrinsic_1024x576.json`) will be placed into `~/.cpop/cameras` and copied into this repository to `etc/cpop/cameras`.
 
 Here is a video showing the procedure.
 The more angles and good frames you capture, the better the result will be.
@@ -57,8 +58,8 @@ The exact steps are described here: https://github.com/cognitivexr/cpop#extrinsi
 
 First, place the camera where it should perceive the environment from.
 Print the ArUco marker and put it on the ground where it is visible to the camera.
-After anchoring, it should not be moved, otherwise the coordinates sent to other devices will be wrong.
-use the `python -m cpop.cli.anchor` command to run the anchoring.
+After anchoring, you should not move the camera. Otherwise, the coordinates sent to other devices will be wrong.
+Use the `python -m cpop.cli.anchor` command to run the anchoring.
 Copy the `default__extrinsic.json` file from `~/.cpop/cameras` into `etc/cpop/cameras`.
 
 Here is what the procedure looks like (marker is on the table for demonstration purposes).
@@ -80,16 +81,16 @@ The `etc/` folder contains several configuration files that are mounted into the
 #### Build the container images
 
 We currently don't host pre-built docker images, so you will have to build them yourself:
-* CPOP
-* CogStream Mediator
-* CogStream Engines (e.g., fermx, and yolov5)
+* [CPOP](https://github.com/cognitivexr/cpop)
+* [CogStream Mediator](https://github.com/cognitivexr/CogStream)
+* [CogStream Engines (e.g., fermx, and yolov5)](https://github.com/cognitivexr/CogStream)
 
 You can find build instructions for the docker images in the respective repositories.
 
 #### Set correct engine image
 
-in `etc/engines/` you can find the engine specifications that describe how engines are started by the mediator.
-If you wish to use the CPU images for the fermx or yolov5 engine, then you can change the tag from `cuda-110` to `cpu`.
+In `etc/engines/`, you can find the engine specifications that describe how the mediator starts engines.
+If you wish to use the CPU images for the fermx or yolov5 engine, you can change the tag from `cuda-110` to `cpu`.
 https://github.com/cognitivexr/cognitivear-demo/blob/e98ab951e219132f1b68c9331a6adb923174a9ca/etc/engines/fermx.spec.json#L5
 
 #### System parameters
@@ -106,7 +107,7 @@ https://github.com/cognitivexr/cognitivear-demo/blob/e98ab951e219132f1b68c9331a6
 You can use and start any MQTT-compliant broker.
 The MQTT broker port and host needs to be configured when
 1. starting CPOP (via the environment varibale `CPOP_BROKER_PORT` and `CPOP_BROKER_HOST`).
-2. building the HoloLens app (TODO: point to code)
+2. building the HoloLens app: https://github.com/cognitivexr/cognitivexr-unity-client
 
 #### Start the CPOP Server
 
@@ -124,7 +125,7 @@ It contains two scenes that demonstrate the integration of the HoloLens with the
 ### App 1: Indoor environmental sensor tracking
 
 This app demonstrates the integration with CPOP.
-The AR device doesn't do any tracking, it only receives sensor data from the environment in real time that CPOP collects.
+The AR device doesn't do any tracking, it only receives sensor data from the environment in real-time that CPOP collects.
 
 https://user-images.githubusercontent.com/3996682/151723092-653bf867-7064-4fb1-9358-c2c17703fa64.mp4
 
